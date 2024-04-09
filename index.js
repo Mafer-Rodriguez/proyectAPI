@@ -3,6 +3,7 @@ const app = express();
 const port = 3000;
 const bodyParser = require("body-parser");
 const { getRoom, createRoom } = require("./queries/room.queries");
+const { getRoomType, createRoomType } = require("./queries/room_type.queries"); 
 
 app.use(bodyParser.json());
 
@@ -14,6 +15,16 @@ app.get("/room", (req, res) => {
 
 app.post("/room", (req, res) => {
   createUser(req, res);
+});
+
+//room_type
+
+app.get("/room_type", (req, res) => {
+    getUsers(req, res);
+});
+
+app.post("/room_type", (req, res) => {
+        createUser(req, res);
 });
 
 
