@@ -2,12 +2,8 @@ const express = require("express");
 const app = express();
 const port = 3000;
 const bodyParser = require("body-parser");
-const { getarea, createarea, deletearea, putarea, patcharea } = require("./queries/area.queries");
-const { getbuilding, createbuilding, deletebuilding, putbuilding, patchbuilding } = require("./queries/building.queries");
-const { getfloor, createfloor, deletefloor, putfloor, patchfloor } = require("./queries/floor.queries");
-const { getstaff, createstaff, deletestaff, putstaff, patchstaff } = require("./queries/staff.queries");
-
-
+const { getRoom, createRoom } = require("./queries/room.queries");
+const {getRoom_type,createRoom_type,updateRoom_type,patchRoom_type,deleteRoom_type} = require("./queries/room_type.queries"); 
 
 app.use(bodyParser.json());
 
@@ -113,6 +109,28 @@ app.put('/floor/:id', (req, res) => {
 // PATCH: ACTUALIZAR PARCIALMENTE
 app.patch("/floor/:id", (req, res) => {
   patchfloor(req, res);
+});
+
+//room_type
+
+app.get("/room_type", (req, res) => {
+    getUsers(req, res);
+});
+
+app.post("/room_type", (req, res) => {
+        createUser(req, res);
+});
+
+app.put("/room_type/:id", (req, res) => {
+    updateUser(req, res);
+});
+
+app.patch("/room_type/:id", (req, res) => {
+    patchUser(req, res);
+});
+
+app.delete("/room_type/:id", (req, res) => {
+    deleteUser(req, res);
 });
 
 
