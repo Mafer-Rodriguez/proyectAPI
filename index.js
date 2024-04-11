@@ -4,13 +4,19 @@ const port = 3000;
 const bodyParser = require("body-parser");
 const { getRoom, createRoom } = require("./queries/room.queries");
 const {getRoom_type,createRoom_type,updateRoom_type,patchRoom_type,deleteRoom_type} = require("./queries/room_type.queries"); 
+const {getArea,createArea,deleteArea,putArea,patchArea} = require("./queries/area.queries");
+const {getBuilding,createBuilding,deleteBuilding,putBuilding,patchBuilding} = require("./queries/building.queries");
+const {getFloor,createFloor,deleteFloor,putFloor, patchFloor} = require("./queries/floor.queries");
+const {getStaff,createStaff,deleteStaff,putStaff,patchStaff,} = require("./queries/staff.queries");
+
+
 
 app.use(bodyParser.json());
 
 //AREA
 
 // GET: OBTENER
-pp.get("/area", requiresAuth(), (req, res) => {
+app.get("/area", (req, res) => {
   getarea(req, res);
 });
 
@@ -45,7 +51,7 @@ app.listen(port, () => {
 
 //BUILDING
 // GET: OBTENER
-pp.get("/building", requiresAuth(), (req, res) => {
+app.get("/building", (req, res) => {
   getbuilding(req, res);
 });
 
@@ -76,17 +82,9 @@ app.listen(port, () => {
 })
 
 
-
-
-
-
-
-
-
-
 //FLOOR
 //GET: OBTENER
-pp.get("/floor", requiresAuth(), (req, res) => {
+app.get("/floor", (req, res) => {
   getfloor(req, res);
 });
 
@@ -138,7 +136,7 @@ app.delete("/room_type/:id", (req, res) => {
 
 //STAFF
 //GET: OBTENER
-pp.get("/staff", requiresAuth(), (req, res) => {
+app.get("/staff",(req, res) => {
   getstaff(req, res);
 });
 
