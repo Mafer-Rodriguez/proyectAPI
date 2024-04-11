@@ -19,7 +19,7 @@ const createRoom_type = async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 };
-
+//put is used to update a record
 const updateRoom_type = async (req, res) => {
   try {
     const roomTypeId = req.params.id;
@@ -59,11 +59,40 @@ const deleteRoom_type = async (req, res) => {
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
-};
+
+  //patch is used to update a record partially, the difference between put and patch is that put updates the entire record and patch updates only the fields that are sent in the request
+  const patchRoom_type = async (req, res) => {
+    try {
+      const roomTypeId = req.params.id;
+      const patchRoom_type = req.body;
+
+      const room_type = await Room_type.findByPk(roomTypeId);
+      if (!room_type) {
+        res.status(404).json({ message: "Room type not found" });
+        return;
+      }
+
+      if (patchRoom_type.name) {
+        room_type.name = patchRoom_type.name;
+      }
+
+      if (patchRoom_type.description) {
+        room_type.description = patchRoom_type.description;
+      }
+
+      await room_type.save();
+
+      res.json(room_type);
+    } catch (error) {
+      res.status(500).json({ message: error.message });
+    }
+  };
 
 module.exports = {
   getRoom_type,
   createRoom_type,
   updateRoom_type,
-  deleteRoom_type
+  deleteRoom_type,
+  patchRoom_type
+}
 };
