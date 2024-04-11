@@ -58,11 +58,11 @@ module.exports = (sequelize, Sequelize) => {//hacer un modulo que exporte una fu
         {
             timestamps: false,
             freezeTableName: true,
-            tableName: "book",
+            tableName: "room",
         }
     );
 
-    module.exports = Book;
+    module.exports = Room;
   
-    return Book;
+    return Room;
   };
