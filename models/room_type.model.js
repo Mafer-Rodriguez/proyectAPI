@@ -1,5 +1,5 @@
-module.exports = (sequelize, Sequelize) => {//hacer un modulo que exporte una funcion que recibe dos parametros, sequelize y Sequelize
-    const room_type = sequelize.define(
+module.exports = (sequelize, Sequelize) => {
+    const Room_type = sequelize.define(
         "room_type",
         {
             id: {
@@ -32,7 +32,5 @@ module.exports = (sequelize, Sequelize) => {//hacer un modulo que exporte una fu
         }
     );
 
-    module.exports = room_type;
-  
-    return room_types;
-  };
+    return Room_type;
+};

@@ -20,7 +20,7 @@ module.exports = (sequelize, Sequelize) => {//hacer un modulo que exporte una fu
                     model: 'room_type',
 
                     // Este es el nombre de la columna de la tabla referenciado
-                    key: 'id' 
+                    key: 'id'
                 }
             },
             id_building: {
@@ -30,7 +30,7 @@ module.exports = (sequelize, Sequelize) => {//hacer un modulo que exporte una fu
                     model: 'building',
 
                     // Este es el nombre de la columna de la tabla referenciado
-                    key: 'id' 
+                    key: 'id'
                 }
             },
             id_floor: {
@@ -40,7 +40,7 @@ module.exports = (sequelize, Sequelize) => {//hacer un modulo que exporte una fu
                     model: 'floor',
 
                     // Este es el nombre de la columna de la tabla referenciado
-                    key: 'id' 
+                    key: 'id'
                 }
             },
             created_at: {
@@ -63,6 +63,6 @@ module.exports = (sequelize, Sequelize) => {//hacer un modulo que exporte una fu
     );
 
     module.exports = Room;
-  
+
     return Room;
-  };
+};
