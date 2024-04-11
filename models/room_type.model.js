@@ -28,7 +28,7 @@ module.exports = (sequelize, Sequelize) => {//hacer un modulo que exporte una fu
         {
             timestamps: false,
             freezeTableName: true,
-            tableName: "author",
+            tableName: "room_type",
         }
     );
 
