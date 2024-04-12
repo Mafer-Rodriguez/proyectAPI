@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API HTML Example</title>
+</head>
+<body>
+    <h1>API HTML Example</h1>
+    <div id="data-container"></div>
+
+    <script>
+        // URL de tu API
+        const apiUrl = 'http://localhost:3000'; // Cambia esto por la URL de tu API
+
+        // Realizar una solicitud GET a la API
+        fetch(apiUrl)
+            .then(response => response.json())
+            .then(data => {
+                // Manejar la respuesta de la API
+                const dataContainer = document.getElementById('data-container');
+                dataContainer.innerHTML = '<pre>' + JSON.stringify(data, null, 2) + '</pre>';
+            })
+            .catch(error => {
+                // Manejar errores de la solicitud
+                console.error('Error fetching data:', error);
+            });
+    </script>
+</body>
+</html>
